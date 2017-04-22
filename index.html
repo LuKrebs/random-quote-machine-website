@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Random Quote Machine</title>
+	  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css">
+		<link rel='stylesheet' href='css/style.css'/>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		
+		<header class="w3-container w3-theme w3-padding" id="myHeader"> 
+  		<div class="w3-center w3-padding-64 ">
+				<h1 class="w3-xxxlarge"></h1>
+  		</div>
+		</header> 
+  
+		<div class="w3-row-padding w3-padding-16 w3-container " id='wd'>
+    	<div class="w3-center">
+     	 <h3 id='new-phrase'>“We accept the love we think we deserve.” </h3></br>
+     	 <h5 class="w3-right" id='new-phrase-second'>Stephen Chbosky</h5>
+  		</div>
+   		<div class="buttons">   
+    		<a class="button w3-hover-gray" id="tweet-quote" title="Tweet this Quote" target="_blank">
+      	<i class="fa fa-twitter"></i></a> 
+  		</div>
+		</div>
+
+  
+		<div class="w3-row-padding w3-padding-16 w3-container">
+    	<div class="w3-center">
+      	<button type="submit" class="w3-btn w3-center w3-theme w3-hover-gray" id='new-quote' title='Click for a new Quote' >New Quote</button>
+    	</div>
+  	</div> 
+
+		<footer class="w3-container w3-padding-64 w3-center">  
+  		<div class="w3-xlarge w3-padding-32 w3-opacity">
+  			<a class="w3-btn-floating w3-black w3-hover-white" href="https://www.facebook.com/luciano.krebsamaralarruda" target="_blank" title=" my Facebook"><i class="fa fa-facebook"></i></a>
+  			<a class="w3-btn-floating w3-black w3-hide-small w3-hover-white" href="https://www.linkedin.com/in/luciano-krebs-70a934113/" title=" my Linkedin" target="_blank" ><i class="fa fa-linkedin"></i></a>
+  			<a class="w3-btn-floating w3-black w3-hide-small w3-hover-white" href="https://github.com/LuKrebs" title="my GitHub" target="_blank"><i class="fa fa-github"></i></a>
+      	<a class="w3-btn-floating w3-black w3-hover-white" href="https://www.freecodecamp.com/lukrebs" target="_blank" title="my freeCodeCamp profile"><i class="fa fa-free-code-camp" aria-hidden="true"></i></a>
+      	<a class="w3-btn-floating w3-black w3-hover-white" href="https://www.freecodecamp.com/lukrebs" target="_blank" title="my CodePen profile"><i class="fa fa-codepen" aria-hidden="true"></i></a>
+ 			</div>
+				<p>Powered by <a href="https://about.me/lucianokrebs" target="_blank">Luciano Krebs</a></p>
+		</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript">
+
+			$(document).ready(function() { 
+	  		getQuote();
+			});
+
+			function getRandomInt(min, max) {
+		    min = Math.ceil(min);
+		    max = Math.floor(max);
+		    return Math.floor(Math.random() * (max - min)) + min;
+			}
+
+			// function openURL(url){
+			//   window.open(url, 'Share', 'width=550, height=400, toolbar=0, scrollbars=1 ,location=0 ,statusbar=0,menubar=0, resizable=0');
+			// }
+
+			function getQuote() {
+  			var myArray = [
+					['“Do not cry because it is over, smile because it happened.”',"Dr. Seuss"],
+					['“Be yourself; everyone else is already taken.” ', "Oscar Wilde"], 
+					['“Two things are infinite: the universe and human stupidity; and I am not sure about the universe.” ', "Albert Einstein"],
+					['“Be who you are and say what you feel, because those who mind do not matter, and those who matter do not mind.”',"Bernard M. Baruch"],
+					['“So many books, so little time.”', 'Frank Zappa'],
+					['“A room without books is like a body without a soul.”', 'Marcus Tullius Cicero'],
+					['“You only live once, but if you do it right, once is enough.”', 'Mae West'],
+					['“Be the change that you wish to see in the world.”', 'Mahatma Gandhi'],
+					['“In three words I can sum up everything I have learned about life: it goes on.”', 'Robert Frost'],
+					['“If you want to know what a man likes, take a good look at how he treats his inferiors, not his equals.”', 'J.K. Rowling'], 
+					['“Friendship ... is born at the moment when one man says to another "What! You too? I thought that no one but myself . . .” ', 'C.S. Lewis, The Four Loves'],
+					['“No one can make you feel inferior without your consent.”', 'Eleanor Roosevelt'],
+					['“If you tell the truth, you do not have have to remember anything.”', 'Mark Twain'],
+					['“A friend is someone who knows all about you and still loves you.”', 'Elbert Hubbard'],
+					['“Always forgive your enemies; nothing annoys them so much.”', 'Oscar Wilde'],
+					['“Live as if you were to die tomorrow. Learn as if you were to live forever.” ', 'Mahatma Gandhi'],
+					['“To live is the rarest thing in the world. Most people exist, that is all.”', 'Oscar Wilde'],
+					['“Without music, life would be a mistake.”', 'Friedrich Nietzsche']
+				];
+	    	$("#tweet-quote").click(function(){ 
+      		$("#tweet-quote").attr('href', 'https://twitter.com/intent/tweet?hashtags=quotes&text=' + encodeURIComponent('"We accept the love we think we deserve." Stephen Chbosky'));
+	  		});
+  
+	    	$("#new-quote").click(function () {
+	      	var a = getRandomInt(0,18);
+	      	$("#new-phrase").html(myArray[a][0]);
+	      	$("#new-phrase-second").html(myArray[a][1]);
+	      	$("#tweet-quote").click(function(){ 	
+						$("#tweet-quote").attr('href', 'https://twitter.com/intent/tweet?hashtags=quotes&text=' + encodeURIComponent(myArray[a][0]) + " " + myArray[a][1]);
+	  			});
+	    	});
+			}
+
+		</script>
+	</body>
+</html>
