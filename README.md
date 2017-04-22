@@ -6,4 +6,4 @@
 
 <p>The image below show us a quick preview of what this front-end pen looks like: </p>
 
-<a href="http://codepen.io/LuKrebs/full/PpZjBB/"><img src="img/random-quote.png"></a>
+<a href="http://codepen.io/LuKrebs/full/PpZjBB/"><img src="img/rquote.png"></a>
